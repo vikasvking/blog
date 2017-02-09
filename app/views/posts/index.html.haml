@@ -1,0 +1,17 @@
+%section#portfolio
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2 Blog
+        %hr.star-primary/
+    
+    .row
+      - @post.each do |i|
+        .col-sm-4.portfolio-item
+          .hovereffect
+            = link_to image_tag(i.image.url(:medium)),i
+            .overlay
+              = i.title
+      = will_paginate @post,renderer: BootstrapPagination::Rails
+      
+/ About Section
